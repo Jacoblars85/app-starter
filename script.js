@@ -2,6 +2,8 @@ function onReady() {
   console.log('Javascript still works! What a gosh darn relief.');
 }
 
+let todoCounter = 0;
+
 function handleSubmit(event) {
   //stop the form from taking over, refreshing
   event.preventDefault();
@@ -26,11 +28,23 @@ function handleSubmit(event) {
   ${todoText} (${todoAuthor})
 </li>
 `
+
+todoCounter++;
+
+console.log(todoCounter);
+
+document.getElementById('todoCounter').textContent = todoCounter;
 }
 
 function deleteTodo(event) {
   console.log('trying to delete');
   event.target.parentElement.remove();
+
+  todoCounter--;
+
+  console.log(todoCounter);
+
+  document.getElementById('todoCounter').textContent = todoCounter;
 }
 
 
